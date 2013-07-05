@@ -12,6 +12,7 @@ namespace BreakAwayConsole
     {
         static void Main(string[] args)
         {
+            InsertDestination();
         }
 
         private static void InsertDestination()
@@ -22,6 +23,12 @@ namespace BreakAwayConsole
                 Description = "EcoTourism at its best in exotic Bali",
                 Name = "Bali"
             };
+
+            using(var context = new BreakAwayContext())
+            {
+                context.Destinations.Add(destination);
+                context.SaveChanges();
+            }
         }
     }
 }
