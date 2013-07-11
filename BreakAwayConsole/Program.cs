@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Model;
 using DataAccess;
+using System.Data.Entity;
 
 namespace BreakAwayConsole
 {
@@ -12,6 +13,7 @@ namespace BreakAwayConsole
     {
         static void Main(string[] args)
         {
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<BreakAwayContext>());
             InsertDestination();
         }
 
